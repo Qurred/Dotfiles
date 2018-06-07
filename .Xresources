@@ -1,1 +1,125 @@
-/home/qurred/.Xresources
+! --- special colors ---
+
+*background: #191919
+*foreground: #d9e6f2
+
+! --- standard colors ---
+
+! black
+*color0: #191919
+
+! bright_black
+*color8: #484848
+
+! red
+*color1: #aa5533
+
+! bright_red
+*color9: #3e0605
+
+! green
+*color2: #556644
+
+! bright_green
+*color10: #999955
+
+! yellow
+*color3: #eecc88
+
+! bright_yellow
+*color11: #c9ed16
+
+! blue
+*color4: #63629e
+
+! bright_blue
+*color12: #627f9e
+
+! magenta
+*color5: #aa99bb
+
+! bright_magenta
+*color13: #9e629e
+
+! cyan
+*color6: #99b3cc
+
+! bright_cyan
+*color14: #99cccc
+
+! white
+*color7: #e5e5e5
+
+! bright_white
+*color15: #eeddcc
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
+
+! ------------------------------------------------------------------------------
+! --- URXVT-------------------------------------------
+! ------------------------------------------------------------------------------
+
+URxvt.*color0: #191919
+URxvt.*color8: #484848
+URxvt.*color1: #aa5533
+URxvt.*color9: #3e0605
+URxvt.*color2: #556644
+URxvt.*color10: #999955
+URxvt.*color3: #eecc88
+URxvt.*color11: #c9ed16
+URxvt.*color4: #63629e
+URxvt.*color12: #627f9e
+URxvt.*color5: #aa99bb
+URxvt.*color13: #9e629e
+URxvt.*color6: #99b3cc
+URxvt.*color14: #99cccc
+URxvt.*color7: #e5e5e5
+URxvt.*color15: #eeddcc
+
+! fonts
+! run "fc-list" for a list of available fonts
+!URxvt*font: xft:Droid Sans Mono:pixelsize=18
+!URxvt*letterSpace: -1
+
+URxvt.intensityStyles:	false
+URxvt.background:       [70]#191919
+URxvt.depth:		32
+URxvt.font: 		xft:monospace:size=15
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:		#4682B4
+!! ranger
+URxvt.keysym.M-r: eval:ranger
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button:	1
+URxvt.scrollBar: False
+
+
+rofi.color-enabled:	true
+rofi.color-window:	#000, #000, #000
+rofi.color-normal:	#111, #819396, #222, #008ed4, #ffffff
+rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
+
+rofi.fake-transparency:	true
+rofi.lines:		          3
+rofi.bw:		            0
+rofi.opacity:		       "90"
+rofi.hide-scrollbar:	 true
+rofi.width:		         30
