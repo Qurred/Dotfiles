@@ -1,8 +1,1 @@
-#!/bin/bash
-
-# My first bash script. It takes a screenshot using scrot and also creates thumbnail which size is 15 % from original
-# After screenshot, it uses notify-send to tell user that screenshot has been taken.
-# Author: Juho "Qurred" Kuusinen"
-
-scrot ~/Pictures/Screenshots/%T_%d_%m_%Y.png -t 15 -z
-notify-send -t 1500 "Screenshot taken"
+/home/qurred/scripts/screenshot
