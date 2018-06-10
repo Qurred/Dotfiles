@@ -1,19 +1,29 @@
 
-rofi.modi: run
+rofi.modi: drun,window,run
 
 
 rofi.color-enabled:	true
-rofi.color-window:	#191919, #191919, #191919
-rofi.color-normal:	#111, #819396, #222, #008ed4, #d9e6f2
-rofi.color-active:	#484848, #008ed4, #003643, #008ed4, #d9e6f2
-rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #d9e6f2
+rofi.color-window:	#b3191919, #b3191919, #b3191919
+rofi.color-normal:	#b3111111, #819396, #b3222222, #b3008ed4, #d9e6f2
+rofi.color-active:	#b3484848, #008ed4, #003643, #008ed4, #d9e6f2
+rofi.color-urgent:	#b3002b37, #da4281, #003643, #008ed4, #d9e6f2
 
 
-rofi.fake-background:    screenshot
+#rofi.fake-background:   screenshot
 rofi.fake-transparency:	 true
-rofi.fullscreen:         true
-rofi.lines:		         5
-rofi.bw:		         0
-rofi.opacity:		     20
+rofi.terminal:		 urxvt
+rofi.fullscreen:         false
+rofi.separator-style:	 none
+rofi.sidebar-mode:	 true
+rofi.lines:		 25
+rofi.bw:		 0
+#rofi.opacity:		 "10"
 rofi.hide-scrollbar:	 true
-rofi.width:		         50
+rofi.width:		 -50
+rofi.padding:		 10
+rofi.eh:		 1
+rofi.font:		 Open Sans Light 20
+rofi.show-icons:	 true
+rofi.drun-icon-theme:	 Paper
+rofi.location:		 1
+#rofi.height: 		 1080

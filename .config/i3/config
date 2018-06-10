@@ -23,7 +23,9 @@ bindsym $alt+Return exec $TERMINAL
 bindsym $alt+Shift+q kill
 
 # start rofi
-bindsym $alt+d exec rofi -show run #-lines 3 -eh 2 -width 100 -padding 800 -opacity "60" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
+bindsym $alt+d exec rofi -show 
+#-show run -lines 3 -eh 2 -width 100 -padding 800 -opacity 
+#"60" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
 bindsym $alt+w exec $BROWSER
 
 # change focus
@@ -39,10 +41,10 @@ bindsym $alt+Up focus up
 bindsym $alt+Right focus right
 
 # move focused window
-bindsym $alt+Shift+j move left
-bindsym $alt+Shift+k move down
-bindsym $alt+Shift+l move up
-bindsym $alt+Shift+semicolon move right
+#bindsym $alt+Shift+j move left
+#bindsym $alt+Shift+k move down
+#bindsym $alt+Shift+l move up
+#bindsym $alt+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $alt+Shift+Left move left
@@ -166,7 +168,7 @@ bindsym Print exec ~/scripts/screenshot
 # Openable windows
 for_window [class="Spotify"] move to workspace $ws9
 exec spotify
-exec --no-startup-id compton -f
+exec --no-startup-id compton --xrender-sync-fence
 
 
 # Window resize commands
