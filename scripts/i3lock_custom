@@ -1,0 +1,7 @@
+#!/bin/bash
+#Modified version of lock.sh by 'LukeSmithxyz' on Github
+
+scrot /tmp/.lockbackground.png
+convert /tmp/.lockbackground.png -paint 1 -swirl 360 /tmp/.lockbackground.png
+[[ -f ~/.config/i3/lock.png ]] && convert /tmp/screen.png  ~/.config/i3/lock.png -gravity center -composite -matte /tmp/screen.png
+

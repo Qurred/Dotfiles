@@ -1,7 +1,7 @@
 
 
 # VARIABLES
-set $mod Mod4
+set $alt Mod4
 set $BROWSER        "chromium"
 set $FILEBROWSER    "ranger"
 set $TERMINAL       "urxvt"
@@ -12,65 +12,63 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$alt to drag floating windows to their wanted position
+floating_modifier $alt
 
 # start a terminal
-bindsym $mod+Return exec $TERMINAL
-# i3-sensible-terminal
+bindsym $alt+Return exec $TERMINAL
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $alt+Shift+q kill
 
 # start rofi
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "60" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
-bindsym $mod+w exec $BROWSER
+bindsym $alt+d exec rofi -show run #-lines 3 -eh 2 -width 100 -padding 800 -opacity "60" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
+bindsym $alt+w exec $BROWSER
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $alt+j focus left
+bindsym $alt+k focus down
+bindsym $alt+l focus up
+bindsym $alt+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $alt+Shift+j move left
+bindsym $alt+Shift+k move down
+bindsym $alt+Shift+l move up
+bindsym $alt+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $alt+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $alt+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $alt+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $alt+s layout stacking
+#bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $alt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $alt+space focus mode_toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -86,59 +84,58 @@ set $ws9 "9: Music "
 set $ws10 "10: Presentation"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $alt+1 workspace $ws1
+bindsym $alt+2 workspace $ws2
+bindsym $alt+3 workspace $ws3
+bindsym $alt+4 workspace $ws4
+bindsym $alt+5 workspace $ws5
+bindsym $alt+6 workspace $ws6
+bindsym $alt+7 workspace $ws7
+bindsym $alt+8 workspace $ws8
+bindsym $alt+9 workspace $ws9
+bindsym $alt+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $alt+Shift+1 move container to workspace $ws1
+bindsym $alt+Shift+2 move container to workspace $ws2
+bindsym $alt+Shift+3 move container to workspace $ws3
+bindsym $alt+Shift+4 move container to workspace $ws4
+bindsym $alt+Shift+5 move container to workspace $ws5
+bindsym $alt+Shift+6 move container to workspace $ws6
+bindsym $alt+Shift+7 move container to workspace $ws7
+bindsym $alt+Shift+8 move container to workspace $ws8
+bindsym $alt+Shift+9 move container to workspace $ws9
+bindsym $alt+Shift+0 move container to workspace $ws10
 
 # COLOR VARIABLES
-set $bg-color			#191919
+set $bg-color				#191919
 set $inactive-bg-color		#484848
-set $text-color			#S9E6F2
+set $text-color				#S9E6F2
 set $inactive-text-color	#C9BAD4
 set $urgent-bg-color   		#999955
 
 # window colors
-#                       border             	 background         text                 indicator
+#                       border             	 	background         text                 indicator
 client.focused          $bg-color           	$bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color	$inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color 	$inactive-bg-color $inactive-text-color #00ff00
+client.unfocused        $inactive-bg-color		$inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color 		$inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    	$urgent-bg-color   $text-color          #00ff00
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $alt+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $alt+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bar {
 	position top
 	mode dock
-	status_command i3blocks -c /home/qurred/i3blocks.conf
+	status_command i3blocks -c ~/i3blocks.conf
   	colors {
         	background $bg-color
-        	separator #757575
         	#                  border             background         text
         	focused_workspace  $bg-color          $bg-color          $text-color
         	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
@@ -147,27 +144,34 @@ bar {
 }
 
 
-exec_always feh --bg-scale ~/Pictures/nierViolin.jpg
+exec_always feh --bg-scale ~/.wallpaper.jpg #Sets wallpaper
 
 # Lock keybind
-bindsym $mod+shift+x exec i3lock
+bindsym $alt+shift+x exec i3lock
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-#increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-#decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
+bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5%	#Increase volume by -5%
+bindsym XF86AudioLowerVolume	exec --no-startup-id pactl set-sink-volume 0 -5%	#Decrease volume by -5%
+bindsym XF86AudioMute 			exec --no-startup-id pactl set-sink-mute 0 toggle	#Mute sound
+bindsym XF86AudioNext			exec --no-startup-id pactl next
+bindsym XF86AudioPlay			exec --no-startup-id pactl toggle
+bindsym XF86AudioPrev			exec --no-startup-id pactl prev
+bindsym XF86AudioStop			exec --no-startup-id pactl toggle
 # Open ranger
-bindsym $mod+r exec urxvt -e ranger
+bindsym $alt+r exec urxvt -e ranger
 
 # Screenshot
 bindsym Print exec ~/scripts/screenshot 
-#scrot ~/Pictures/Screenshots/%T_%d_%m_%Y.png -t 15 -z; exec 
-#nofity-send -t 1500 "Screenshot taken"
 
 # Openable windows
 for_window [class="Spotify"] move to workspace $ws9
 exec spotify
 exec --no-startup-id compton -f
+
+
+# Window resize commands
+bindsym $alt+Shift+h  exec --no-startup-id "bash ~/.scripts/i3resize left"
+bindsym $alt+Shift+j  exec --no-startup-id "bash ~/.scripts/i3resize down"
+bindsym $alt+Shift+k  exec --no-startup-id "bash ~/.scripts/i3resize up"
+bindsym $alt+Shift+l  exec --no-startup-id "bash ~/.scripts/i3resize right"
+

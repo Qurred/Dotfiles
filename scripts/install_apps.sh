@@ -5,19 +5,23 @@
 
 #List of installable packages
 declare -a packages=(
-	"i3" 		#Our enviroment
-	"i3blocks"	#Stuff to i3 status bar
-	"scrot"		#Screenshot software
-	"vlc"		#Mediaplayer
-	"git"		#Git
-	"gitg"		#GUI for the git
+	"i3" 			#Our enviroment
+	"i3blocks"		#Stuff to i3 status bar
+	"scrot"			#Screenshot software
+	"vlc"			#Mediaplayer
+	"git"			#Git
+	"gitg"			#GUI for the git
 	"openjdk-8-jdk"	#Java 8 JDK
 	"openjdk-8-jre"	#Java 8 JRE
-	"ranger"	#Good TUI filebrowser
-	"chromium"	#My preferred browser
-	"compton"	#Animations and transparenzz
+	"ranger"		#Good TUI filebrowser
+	"chromium"		#My preferred browser
+	"compton"		#Animations and transparenzz
 	"rxvt-unicode"	#My favorite terminal
-	"rofi"		#Replaces dmenu
+	"rofi"			#Replaces dmenu
+	"texlive-most"	#TeX Live application
+	"texlive-lang"	#non-English letters
+	"imagemagick"	#Image manipulation
+	"neofetch"		#command-line system information tool
 )
 
 
@@ -44,6 +48,12 @@ select yn in "Yes" "No"; do
 		No ) exit;;
 	esac
 done
+
+#Updates
+if [[ $OS == "arch" ]]; then sudo pacman -Syy
+elif [[ $OS == "ubuntu" ]]; then sudo apt update
+else echo "Couldn't update repositories"; exit;
+fi
 
 #Main loop
 for package in "${packages[@]}"
