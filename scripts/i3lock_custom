@@ -1,7 +1,21 @@
 #!/bin/bash
 #Modified version of lock.sh by 'LukeSmithxyz' on Github
 
-scrot /tmp/.lockbackground.png
-convert /tmp/.lockbackground.png -paint 1 -swirl 360 /tmp/.lockbackground.png
-[[ -f ~/.config/i3/lock.png ]] && convert /tmp/screen.png  ~/.config/i3/lock.png -gravity center -composite -matte /tmp/screen.png
+timeout="15000"
 
+#Uncomment if want to take printscreen
+#scrot /tmp/lockbackground.png
+#convert ~/.lockbackground.png -paint 1 -swirl 360 /tmp/.lockbackground.png
+
+#Comment this out if want to use screenshot
+convert ~/.background.png -paint 1 -swirl 360 /tmp/.lockbackground.png
+
+[[ -f ~/.config/i3/lock.png ]] && convert /tmp/lockbackground.png  ~/.config/i3/lock.png -gravity center -composite -matte /tmp/lockbackground.png
+
+i3lock -e -f -c 000000 -i /tmp/lockbackground.png
+
+
+while [[ $(pgrep -x i3lock) ]]; do
+	[[ $timeout -lt $(xssstate -i) ]] && xset dpms force off
+	sleep 5
+done
