@@ -1,0 +1,179 @@
+
+
+# VARIABLES
+set $alt Mod4
+set $BROWSER        "chromium"
+set $FILEBROWSER    "ranger"
+set $TERMINAL       "urxvt"
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+
+# Use Mouse+$alt to drag floating windows to their wanted position
+floating_modifier $alt
+
+# start a terminal
+bindsym $alt+Return exec $TERMINAL
+
+# kill focused window
+bindsym $alt+Shift+q kill
+
+# start rofi
+bindsym $alt+d exec rofi -show 
+#-show run -lines 3 -eh 2 -width 100 -padding 800 -opacity 
+#"60" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
+bindsym $alt+w exec $BROWSER
+
+# change focus
+bindsym $alt+j focus left
+bindsym $alt+k focus down
+bindsym $alt+l focus up
+bindsym $alt+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
+
+# move focused window
+#bindsym $alt+Shift+j move left
+#bindsym $alt+Shift+k move down
+#bindsym $alt+Shift+l move up
+#bindsym $alt+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $alt+h split h
+
+# split in vertical orientation
+bindsym $alt+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $alt+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $alt+s layout stacking
+#bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle split
+
+# toggle tiling / floating
+bindsym $alt+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $alt+space focus mode_toggle
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1: Home"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: Music "
+set $ws10 "10: Presentation"
+
+# switch to workspace
+bindsym $alt+1 workspace $ws1
+bindsym $alt+2 workspace $ws2
+bindsym $alt+3 workspace $ws3
+bindsym $alt+4 workspace $ws4
+bindsym $alt+5 workspace $ws5
+bindsym $alt+6 workspace $ws6
+bindsym $alt+7 workspace $ws7
+bindsym $alt+8 workspace $ws8
+bindsym $alt+9 workspace $ws9
+bindsym $alt+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $alt+Shift+1 move container to workspace $ws1
+bindsym $alt+Shift+2 move container to workspace $ws2
+bindsym $alt+Shift+3 move container to workspace $ws3
+bindsym $alt+Shift+4 move container to workspace $ws4
+bindsym $alt+Shift+5 move container to workspace $ws5
+bindsym $alt+Shift+6 move container to workspace $ws6
+bindsym $alt+Shift+7 move container to workspace $ws7
+bindsym $alt+Shift+8 move container to workspace $ws8
+bindsym $alt+Shift+9 move container to workspace $ws9
+bindsym $alt+Shift+0 move container to workspace $ws10
+
+# COLOR VARIABLES
+set $bg-color				#191919
+set $inactive-bg-color		#484848
+set $text-color				#S9E6F2
+set $inactive-text-color	#C9BAD4
+set $urgent-bg-color   		#999955
+
+# window colors
+#                       border             	 	background         text                 indicator
+client.focused          $bg-color           	$bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color		$inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color 		$inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    	$urgent-bg-color   $text-color          #00ff00
+
+# reload the configuration file
+bindsym $alt+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $alt+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bar {
+	position top
+	mode dock
+	status_command i3blocks -c ~/i3blocks.conf
+  	colors {
+        	background $bg-color
+        	#                  border             background         text
+        	focused_workspace  $bg-color          $bg-color          $text-color
+        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+}
+
+
+exec_always feh --bg-scale ~/.wallpaper.jpg #Sets wallpaper
+
+# Lock keybind
+bindsym $alt+shift+x exec i3lock
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5%	#Increase volume by -5%
+bindsym XF86AudioLowerVolume	exec --no-startup-id pactl set-sink-volume 0 -5%	#Decrease volume by -5%
+bindsym XF86AudioMute 			exec --no-startup-id pactl set-sink-mute 0 toggle	#Mute sound
+bindsym XF86AudioNext			exec --no-startup-id pactl next
+bindsym XF86AudioPlay			exec --no-startup-id pactl toggle
+bindsym XF86AudioPrev			exec --no-startup-id pactl prev
+bindsym XF86AudioStop			exec --no-startup-id pactl toggle
+# Open ranger
+bindsym $alt+r exec urxvt -e ranger
+
+# Screenshot
+bindsym Print exec ~/scripts/screenshot 
+
+# Openable windows
+for_window [class="Spotify"] move to workspace $ws9
+exec spotify
+exec --no-startup-id compton --xrender-sync-fence
+
+
+# Window resize commands
+bindsym $alt+Shift+h  exec --no-startup-id "bash ~/.scripts/i3resize left"
+bindsym $alt+Shift+j  exec --no-startup-id "bash ~/.scripts/i3resize down"
+bindsym $alt+Shift+k  exec --no-startup-id "bash ~/.scripts/i3resize up"
+bindsym $alt+Shift+l  exec --no-startup-id "bash ~/.scripts/i3resize right"
+
