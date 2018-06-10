@@ -149,7 +149,8 @@ bar {
 exec_always feh --bg-scale ~/.wallpaper.jpg #Sets wallpaper
 
 # Lock keybind
-bindsym $alt+shift+x exec i3lock
+bindsym $alt+shift+x exec ~/.scripts/i3lock_custom
+#i3lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5%	#Increase volume by -5%
@@ -176,4 +177,7 @@ bindsym $alt+Shift+h  exec --no-startup-id "bash ~/.scripts/i3resize left"
 bindsym $alt+Shift+j  exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $alt+Shift+k  exec --no-startup-id "bash ~/.scripts/i3resize up"
 bindsym $alt+Shift+l  exec --no-startup-id "bash ~/.scripts/i3resize right"
+
+hide_edge_borders vertical
+
 
