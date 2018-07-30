@@ -132,22 +132,24 @@ bindsym $alt+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bar {
-	position top
-	mode dock
-	status_command i3blocks -c ~/i3blocks.conf
-  	colors {
-        	background $bg-color
-        	#                  border             background         text
-        	focused_workspace  $bg-color          $bg-color          $text-color
-        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
+#bar {
+#	position top
+#	mode dock
+#	status_command i3blocks -c ~/i3blocks.conf
+#  	colors {
+#        	background $bg-color
+#        	#                  border             background         text
+#        	focused_workspace  $bg-color          $bg-color          $text-color
+#        	inactive_workspace $inactive-bg-color 
+#$inactive-bg-color $inactive-text-color
+#        	urgent_workspace   $urgent-bg-color   
+#$urgent-bg-color   $text-color
+#        }
+#}
 
 
 exec_always feh --bg-scale ~/.wallpaper.jpg #Sets wallpaper
-
+exec_always --no-startup-id ~/.config/polybar/polybar.sh
 # Lock keybind
 bindsym $alt+shift+x exec ~/.scripts/i3lock_custom
 #i3lock
@@ -164,12 +166,13 @@ bindsym XF86AudioStop			exec --no-startup-id pactl toggle
 bindsym $alt+r exec urxvt -e ranger
 
 # Screenshot
-bindsym Print exec ~/scripts/screenshot 
+bindsym Print exec ~/.scripts/screenshot 
 
 # Openable windows
 for_window [class="Spotify"] move to workspace $ws9
 exec spotify
 exec --no-startup-id compton --xrender-sync-fence
+
 
 
 # Window resize commands
