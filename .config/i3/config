@@ -1,5 +1,4 @@
 
-
 # VARIABLES
 set $alt Mod4
 set $BROWSER        "chromium"
@@ -21,6 +20,9 @@ bindsym $alt+Return exec $TERMINAL
 
 # kill focused window
 bindsym $alt+Shift+q kill
+
+gaps inner 5
+gaps outer 5
 
 # start rofi
 bindsym $alt+d exec rofi -show 
@@ -116,12 +118,26 @@ set $text-color				#S9E6F2
 set $inactive-text-color	#C9BAD4
 set $urgent-bg-color   		#999955
 
+set_from_resource $fg i3wm.color7 
+##f0f0f0
+set_from_resource $bg i3wm.color2 
+##f0f0f0
+
 # window colors
 #                       border             	 	background         text                 indicator
-client.focused          $bg-color           	$bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color		$inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color 		$inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    	$urgent-bg-color   $text-color          #00ff00
+#client.focused          $bg-color           	$bg-color          $text-color          #00ff00
+#client.unfocused        $inactive-bg-color		$inactive-bg-color $inactive-text-color #00ff00
+#client.focused_inactive $inactive-bg-color 		$inactive-bg-color $inactive-text-color #00ff00
+#client.urgent           $urgent-bg-color    	$urgent-bg-color   $text-color          #00ff00
+
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 
 # reload the configuration file
 bindsym $alt+Shift+c reload
@@ -132,27 +148,13 @@ bindsym $alt+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#bar {
-#	position top
-#	mode dock
-#	status_command i3blocks -c ~/i3blocks.conf
-#  	colors {
-#        	background $bg-color
-#        	#                  border             background         text
-#        	focused_workspace  $bg-color          $bg-color          $text-color
-#        	inactive_workspace $inactive-bg-color 
-#$inactive-bg-color $inactive-text-color
-#        	urgent_workspace   $urgent-bg-color   
-#$urgent-bg-color   $text-color
-#        }
-#}
-
-
-exec_always feh --bg-scale ~/.wallpaper.jpg #Sets wallpaper
+exec_always wal -R
+exec_always feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"  
+# exec_always feh --bg-scale ~/.wallpaper.png #Sets wallpaper
 exec_always --no-startup-id ~/.config/polybar/polybar.sh
+
 # Lock keybind
 bindsym $alt+shift+x exec ~/.scripts/i3lock_custom
-#i3lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume 	exec --no-startup-id pactl set-sink-volume 0 +5%	#Increase volume by -5%
@@ -162,18 +164,21 @@ bindsym XF86AudioNext			exec --no-startup-id pactl next
 bindsym XF86AudioPlay			exec --no-startup-id pactl toggle
 bindsym XF86AudioPrev			exec --no-startup-id pactl prev
 bindsym XF86AudioStop			exec --no-startup-id pactl toggle
+
+exec --no-startup-id /usr/bin/blueman-applet                 # Bluetooth Manager
+exec --no-startup-id /usr/bin/nm-applet --sm-disable        # Network Manager
+
+
 # Open ranger
 bindsym $alt+r exec urxvt -e ranger
 
 # Screenshot
 bindsym Print exec ~/.scripts/screenshot 
 
-# Openable windows
+# Start up programs
 for_window [class="Spotify"] move to workspace $ws9
 exec spotify
 exec --no-startup-id compton --xrender-sync-fence
-
-
 
 # Window resize commands
 bindsym $alt+Shift+h  exec --no-startup-id "bash ~/.scripts/i3resize left"
@@ -184,3 +189,12 @@ bindsym $alt+Shift+l  exec --no-startup-id "bash ~/.scripts/i3resize right"
 hide_edge_borders vertical
 
 
+exec --no-startup-id /usr/bin/xfce4-power-manager           # Power Manager
+
+# Changes keyboard layout to Finnish
+exec "setxkbmap -layout fi"
+
+for_window [class="discord"] move to workspace $ws8
+exec discord
+
+focus_follows_mouse no

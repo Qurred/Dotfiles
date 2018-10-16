@@ -3,10 +3,13 @@ rofi.modi: drun,window,run
 
 
 rofi.color-enabled:	true
-rofi.color-window:	#b3191919, #b3191919, #b3191919
-rofi.color-normal:	#b3111111, #819396, #b3222222, #b3008ed4, #d9e6f2
-rofi.color-active:	#b3484848, #008ed4, #003643, #008ed4, #d9e6f2
-rofi.color-urgent:	#b3002b37, #da4281, #003643, #008ed4, #d9e6f2
+#rofi.color-window:	#b3191919, #b3191919, #b3191919
+#rofi.color-normal:	#b3111111, #819396, #b3222222, #b3008ed4, #d9e6f2
+#rofi.color-active:	#b3484848, #008ed4, #003643, #008ed4, #d9e6f2
+#rofi.color-urgent:	#b3002b37, #da4281, #003643, #008ed4, #d9e6f2
+
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+
 
 
 #rofi.fake-background:   screenshot
